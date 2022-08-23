@@ -1,0 +1,68 @@
+  <button mat-button [matMenuTriggerFor]="menuCaregory">Categoria</button>
+  <mat-menu #menuCaregory="matMenu">
+    <button (click)="activeCategoryCreate()" mat-menu-item>
+      <mat-icon>exposure_plus_1</mat-icon>
+      <span>Adicionar</span>
+  </button>
+    <button (click)="activeCategoryUpdate()" mat-menu-item>
+      <mat-icon>sync</mat-icon>
+      <span>Atualizar</span>
+    </button>
+    <button (click)="activeCategoryDelete()" mat-menu-item>
+      <mat-icon>layers_clear</mat-icon>
+      <span>Excluir</span>
+    </button>  
+    <button (click)="activeCategoryList()" mat-menu-item>
+      <mat-icon>list_alt</mat-icon>
+      <span>Listar</span>
+    </button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="menuProfile">Perfil</button>
+  <mat-menu #menuProfile="matMenu">
+    <button (click)="activeProfileCreate()" mat-menu-item>
+      <mat-icon>exposure_plus_1</mat-icon>
+      <span>Adicionar</span>
+  </button>
+  <button (click)="activeProfileDelete()" mat-menu-item>
+    <mat-icon>layers_clear</mat-icon>
+    <span>Excluir</span>
+  </button> 
+  <button (click)="activeProfileList()" mat-menu-item>
+    <mat-icon>list_alt</mat-icon>
+    <span>Listar</span>
+  </button> 
+  <button (click)="activeProfileUpdate()" mat-menu-item>
+      <mat-icon>sync</mat-icon>
+      <span>Atualizar</span>
+    </button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="menuUser">Usuário</button>
+  <mat-menu #menuUser="matMenu">
+    <button (click)="activeUserCreate()" mat-menu-item>
+      <mat-icon>exposure_plus_1</mat-icon>
+      <span>Adicionar</span>
+  </button>
+  <button (click)="activeUserList()" mat-menu-item>
+    <mat-icon>list_alt</mat-icon>
+    <span>Listar</span>
+  </button> 
+  <!-- <button (click)="activeProfileDelete()" mat-menu-item>
+    <mat-icon>layers_clear</mat-icon>
+    <span>Excluir</span>
+  </button> 
+
+  <button (click)="activeProfileUpdate()" mat-menu-item>
+      <mat-icon>sync</mat-icon>
+      <span>Atualizar</span>
+    </button> -->
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="menu">Produto</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Adicionar</button>
+    <button mat-menu-item>Atualizar</button>
+    <button mat-menu-item>Excluir</button>  
+    <button mat-menu-item>Listar</button>
+  </mat-menu>
