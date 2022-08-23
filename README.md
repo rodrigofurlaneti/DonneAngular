@@ -2,6 +2,8 @@
 
 ![image](https://csharpcorner-mindcrackerinc.netdna-ssl.com/article/introduction-to-building-asp-net-core-and-angular-web-application/Images/architecture.JPG)
 
+![image](https://i.stack.imgur.com/Lsofi.png)
+
 # Donne
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
