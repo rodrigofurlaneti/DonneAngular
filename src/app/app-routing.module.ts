@@ -13,9 +13,12 @@ import { ProfileDeleteComponent } from './profile/profile-delete/profile-delete.
 import { ProfileUpdateComponent } from './profile/profile-update/profile-update.component';
 
 import { UserCreateComponent } from './user/user-create/user-create.component';
+import { UserDeleteComponent } from './user/user-delete/user-delete.component';
+import { UserListComponent } from './user/user-list/user-list.component';
+
 
 import { MainComponent } from './main/main.component';
-import { UserListComponent } from './user/user-list/user-list.component';
+
 
 export const routes: Routes = [
   { path: '', component: AppComponent },
@@ -29,6 +32,7 @@ export const routes: Routes = [
   { path: 'profile-list', component: ProfileListComponent },
   { path: 'profile-update', component: ProfileUpdateComponent },
   { path: 'user-create', component: UserCreateComponent },
+  { path: 'user-delete', component: UserDeleteComponent },
   { path: 'user-list', component: UserListComponent }
 ];
 

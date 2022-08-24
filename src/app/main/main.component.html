@@ -44,15 +44,15 @@
       <mat-icon>exposure_plus_1</mat-icon>
       <span>Adicionar</span>
   </button>
+  <button (click)="activeUserDelete()" mat-menu-item>
+    <mat-icon>layers_clear</mat-icon>
+    <span>Excluir</span>
+  </button> 
   <button (click)="activeUserList()" mat-menu-item>
     <mat-icon>list_alt</mat-icon>
     <span>Listar</span>
   </button> 
-  <!-- <button (click)="activeProfileDelete()" mat-menu-item>
-    <mat-icon>layers_clear</mat-icon>
-    <span>Excluir</span>
-  </button> 
-
+  <!-- 
   <button (click)="activeProfileUpdate()" mat-menu-item>
       <mat-icon>sync</mat-icon>
       <span>Atualizar</span>

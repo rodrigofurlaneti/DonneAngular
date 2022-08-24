@@ -43,6 +43,8 @@ import { ProfileListModule } from './profile/profile-list/profile-list.module';
 import { ProfileUpdateModule } from './profile/profile-update/profile-update.module';
 import { UserCreateModule } from './user/user-create/user-create.module';
 import { UserListModule } from './user/user-list/user-list.module';
+import { UserDeleteComponent } from './user/user-delete/user-delete.component';
+import { UserDeleteModule } from './user/user-delete/user-delete.module';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { UserListModule } from './user/user-list/user-list.module';
     ProfileListComponent,
     ProfileUpdateComponent,
     UserCreateComponent,
+    UserDeleteComponent,
     UserListComponent
   ],
   imports: [
@@ -84,6 +87,7 @@ import { UserListModule } from './user/user-list/user-list.module';
     MatButtonModule,
     MatTooltipModule,
     UserCreateModule,
+    UserDeleteModule,
     UserListModule
   ],
   providers: [],

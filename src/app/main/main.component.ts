@@ -62,6 +62,10 @@ export class MainComponent implements OnInit{
     this.router.navigate(['user-create']);
   }
 
+  public activeUserDelete() {
+    this.router.navigate(['user-delete']);
+  }
+
   public activeUserList() {
     this.router.navigate(['user-list']);
   }
