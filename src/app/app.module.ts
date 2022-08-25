@@ -6,21 +6,24 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MainComponent } from './main/main.component';
+
 import { CategoryCreateComponent } from './category/category-create/category-create.component';
 import { CategoryCreateModule } from './category/category-create/category-create.module';
 import { CategoryDeleteComponent } from './category/category-delete/category-delete.component';
 import { CategoryListComponent } from './category/category-list/category-list.component';
 import { CategoryUpdateComponent } from './category/category-update/category-update.component';
 
+import { StoreCreateComponent } from './store/store-create/store-create.component';
+
 import { ProfileCreateComponent } from './profile/profile-create/profile-create.component';
 import { ProfileListComponent } from './profile/profile-list/profile-list.component';
 import { ProfileDeleteComponent } from './profile/profile-delete/profile-delete.component';
 import { ProfileUpdateComponent } from './profile/profile-update/profile-update.component';
 
-import { UserListComponent } from './user/user-list/user-list.component';
-
 import { UserCreateComponent } from './user/user-create/user-create.component';
-
+import { UserDeleteComponent } from './user/user-delete/user-delete.component';
+import { UserListComponent } from './user/user-list/user-list.component';
+import { UserUpdateComponent } from './user/user-update/user-update.component';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -37,14 +40,23 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip'
 
+import { StoreCreateModule } from './store/store-create/store-create.module';
+import { StoreDeleteComponent } from './store/store-delete/store-delete.component';
+import { StoreListComponent } from './store/store-list/store-list.component';
+
 import { ProfileCreateModule } from './profile/profile-create/profile-create.module';
 import { ProfileDeleteModule } from './profile/profile-delete/profile-delete.module';
 import { ProfileListModule } from './profile/profile-list/profile-list.module';
 import { ProfileUpdateModule } from './profile/profile-update/profile-update.module';
+
 import { UserCreateModule } from './user/user-create/user-create.module';
-import { UserListModule } from './user/user-list/user-list.module';
-import { UserDeleteComponent } from './user/user-delete/user-delete.component';
 import { UserDeleteModule } from './user/user-delete/user-delete.module';
+import { UserListModule } from './user/user-list/user-list.module';
+import { UserUpdateModule } from './user/user-update/user-update.module';
+import { StoreListModule } from './store/store-list/store-list.module';
+import { StoreDeleteModule } from './store/store-delete/store-delete.module';
+
+
 
 @NgModule({
   declarations: [
@@ -54,13 +66,17 @@ import { UserDeleteModule } from './user/user-delete/user-delete.module';
     CategoryUpdateComponent,
     CategoryListComponent,
     CategoryDeleteComponent,
+    StoreCreateComponent,
+    StoreDeleteComponent,
+    StoreListComponent,
     ProfileCreateComponent,
     ProfileDeleteComponent,
     ProfileListComponent,
     ProfileUpdateComponent,
     UserCreateComponent,
     UserDeleteComponent,
-    UserListComponent
+    UserListComponent,
+    UserUpdateComponent
   ],
   imports: [
     AppRoutingModule,
@@ -70,6 +86,9 @@ import { UserDeleteModule } from './user/user-delete/user-delete.module';
     BrowserModule,
     CdkAccordionModule,
     CategoryCreateModule,
+    StoreCreateModule,
+    StoreDeleteModule,
+    StoreListModule,
     ProfileCreateModule,
     ProfileDeleteModule,
     ProfileListModule,
@@ -88,7 +107,8 @@ import { UserDeleteModule } from './user/user-delete/user-delete.module';
     MatTooltipModule,
     UserCreateModule,
     UserDeleteModule,
-    UserListModule
+    UserListModule,
+    UserUpdateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

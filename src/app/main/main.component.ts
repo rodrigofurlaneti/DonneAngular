@@ -42,6 +42,18 @@ export class MainComponent implements OnInit{
     this.router.navigate(['category-update']);
   }
 
+  public activeStoreCreate() {
+    this.router.navigate(['store-create']);
+  }
+
+  public activeStoreDelete() {
+    this.router.navigate(['store-delete']);
+  }
+
+  public activeStoreList() {
+    this.router.navigate(['store-list']);
+  }
+
   public activeProfileCreate() {
     this.router.navigate(['profile-create']);
   }
@@ -60,6 +72,10 @@ export class MainComponent implements OnInit{
 
   public activeUserCreate() {
     this.router.navigate(['user-create']);
+  }
+
+  public activeUserUpdate() {
+    this.router.navigate(['user-update']);
   }
 
   public activeUserDelete() {
