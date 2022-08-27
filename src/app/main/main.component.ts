@@ -54,6 +54,10 @@ export class MainComponent implements OnInit{
     this.router.navigate(['store-list']);
   }
 
+  public activeStoreUpdate() {
+    this.router.navigate(['store-update']);
+  }
+
   public activeProfileCreate() {
     this.router.navigate(['profile-create']);
   }

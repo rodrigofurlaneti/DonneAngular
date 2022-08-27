@@ -39,6 +39,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip'
+import { MatCheckboxModule } from '@angular/material/checkbox'
 
 import { StoreCreateModule } from './store/store-create/store-create.module';
 import { StoreDeleteComponent } from './store/store-delete/store-delete.component';
@@ -53,8 +54,11 @@ import { UserCreateModule } from './user/user-create/user-create.module';
 import { UserDeleteModule } from './user/user-delete/user-delete.module';
 import { UserListModule } from './user/user-list/user-list.module';
 import { UserUpdateModule } from './user/user-update/user-update.module';
+
 import { StoreListModule } from './store/store-list/store-list.module';
 import { StoreDeleteModule } from './store/store-delete/store-delete.module';
+import { StoreUpdateComponent } from './store/store-update/store-update.component';
+import { StoreUpdateModule } from './store/store-update/store-update.module';
 
 
 
@@ -69,6 +73,7 @@ import { StoreDeleteModule } from './store/store-delete/store-delete.module';
     StoreCreateComponent,
     StoreDeleteComponent,
     StoreListComponent,
+    StoreUpdateComponent,
     ProfileCreateComponent,
     ProfileDeleteComponent,
     ProfileListComponent,
@@ -89,6 +94,7 @@ import { StoreDeleteModule } from './store/store-delete/store-delete.module';
     StoreCreateModule,
     StoreDeleteModule,
     StoreListModule,
+    StoreUpdateModule,
     ProfileCreateModule,
     ProfileDeleteModule,
     ProfileListModule,
@@ -105,6 +111,7 @@ import { StoreDeleteModule } from './store/store-delete/store-delete.module';
     MatIconModule,
     MatButtonModule,
     MatTooltipModule,
+    MatCheckboxModule,
     UserCreateModule,
     UserDeleteModule,
     UserListModule,

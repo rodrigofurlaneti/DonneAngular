@@ -10,6 +10,7 @@ import { CategoryUpdateComponent } from './category/category-update/category-upd
 import { StoreCreateComponent } from './store/store-create/store-create.component';
 import { StoreDeleteComponent } from './store/store-delete/store-delete.component';
 import { StoreListComponent } from './store/store-list/store-list.component';
+import { StoreUpdateComponent } from './store/store-update/store-update.component';
 
 import { ProfileCreateComponent } from './profile/profile-create/profile-create.component';
 import { ProfileListComponent } from './profile/profile-list/profile-list.component';
@@ -23,7 +24,6 @@ import { UserUpdateComponent } from './user/user-update/user-update.component';
 
 import { MainComponent } from './main/main.component';
 
-
 export const routes: Routes = [
   { path: '', component: AppComponent },
   { path: 'main', component: MainComponent },
@@ -34,6 +34,7 @@ export const routes: Routes = [
   { path: 'store-create', component: StoreCreateComponent },
   { path: 'store-delete', component: StoreDeleteComponent },
   { path: 'store-list', component: StoreListComponent },
+  { path: 'store-update', component: StoreUpdateComponent },
   { path: 'profile-create', component: ProfileCreateComponent },
   { path: 'profile-delete', component: ProfileDeleteComponent },
   { path: 'profile-list', component: ProfileListComponent },
