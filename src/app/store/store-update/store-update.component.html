@@ -29,11 +29,10 @@
       <mat-label>Endereço</mat-label>
       <input id="storeAddress" name="storeAddress" value="{{storeModel.storeAddress}}" matInput>
     </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Status</mat-label>
-      <input id="status" name="status" value="{{storeModel.status}}" matInput>
-    </mat-form-field>     
   </div>
+  <section class="example-section">
+    <mat-checkbox id="status" name="status" class="example-margin" (change)="onChangeDemo($event)" checked="{{storeModel.status}}">Status</mat-checkbox>
+  </section> 
   <section>
     <div class="example-button-row">
       <div class="example-flex-container">

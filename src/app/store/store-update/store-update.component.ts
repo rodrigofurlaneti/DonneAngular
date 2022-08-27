@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { StoreUpdateService } from './store-update.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { StoreModel } from 'src/interface/store.interface';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 let ELEMENT_DATA: StoreModel[];
 
@@ -25,6 +26,8 @@ export class StoreUpdateComponent implements OnInit {
   ids: number = 0;
 
   storeModel = new StoreModel();
+
+  statusStore: boolean = true;
    
   constructor(private storeUpdateService: StoreUpdateService,
     private _snackBar: MatSnackBar, 
@@ -44,11 +47,19 @@ export class StoreUpdateComponent implements OnInit {
     })
   }
 
+  onChangeDemo(ob: MatCheckboxChange) {
+    this.statusStore = ob.checked;
+}
+
   public getById(id: number) {
     this.storeUpdateService.getById(id)
                               .subscribe(store => { 
                                 this.storeModel.storeId = store.storeId;
                                 this.storeModel.storeName = store.storeName;
+                                this.storeModel.storeCnpj = store.storeCnpj;
+                                this.storeModel.storeAddress = store.storeAddress;
+                                this.storeModel.status = store.status;
+                                console.log(this.storeModel.status);
                                 this.isIdZero = false;
                                 this.isIdGreaterThanZero = true;
                               });

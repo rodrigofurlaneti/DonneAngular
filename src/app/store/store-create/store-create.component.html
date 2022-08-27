@@ -1,19 +1,19 @@
 <mat-form-field appearance="fill">
   <mat-label>Nome da nova loja</mat-label>
-  <input id="storeName" name="storeName" matInput>
+  <input id="storeName" name="storeName" [value]='storeModel.storeName' matInput>
 </mat-form-field>
 <mat-form-field appearance="fill">
   <mat-label>Cnpj</mat-label>
-  <input id="storeCnpj" name="storeCnpj" matInput>
+  <input id="storeCnpj" name="storeCnpj" [value]='storeModel.storeCnpj' matInput>
 </mat-form-field>
 <mat-form-field appearance="fill">
   <mat-label>Endereço</mat-label>
-  <input id="storeAddress" name="storeAddress" matInput>
+  <input id="storeAddress" name="storeAddress" [value]='storeModel.storeAddress' matInput>
 </mat-form-field>
-<section>
   <section class="example-section">
-    <mat-checkbox class="example-margin">Status</mat-checkbox>
+    <mat-checkbox id="status" name="status" class="example-margin" (change)="onChangeDemo($event)" checked>Status</mat-checkbox>
   </section>
+<section>
   <div class="example-button-row">
     <div class="example-flex-container">
       <div class="example-button-container">
