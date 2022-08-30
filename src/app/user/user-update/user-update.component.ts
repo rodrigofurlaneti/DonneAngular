@@ -53,7 +53,7 @@ export class UserUpdateComponent implements OnInit {
   listProfile() {
     this.userUpdateService.listProfile().subscribe(list => {
       ELEMENT_DATA_PROFILE = list;
-      this.dataSourceProfile = ELEMENT_DATA;
+
     }, err => {
       console.log('Erro ao listar os usuários', err);
     })
@@ -65,8 +65,6 @@ export class UserUpdateComponent implements OnInit {
                                 this.userModel.userId = user.userId;
                                 this.userModel.userName = user.userName;
                                 this.userModel.userPassword = user.userPassword;
-                                this.userModel.profileId = user.profileId;
-                                this.userModel.profileName = user.profileName;
                                 this.selected = user.profileName;
                                 this.isIdZero = false;
                                 this.isIdGreaterThanZero = true;
@@ -90,7 +88,6 @@ export class UserUpdateComponent implements OnInit {
   public update() {
     this.userModel.userName = (<HTMLSelectElement>document.getElementById('nameUser')).value;
     this.userModel.userPassword = (<HTMLSelectElement>document.getElementById('userPassword')).value;
-    console.log(this.userModel);
     this.userUpdateService.update(this.userModel)
                               .subscribe(user => { 
                                 this._snackBar.open('Usuário atualizado com sucesso!', 'Voltar');

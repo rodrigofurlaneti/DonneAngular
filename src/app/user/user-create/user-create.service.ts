@@ -18,4 +18,8 @@ export class UserCreateService {
     return this.http.get('https://localhost:7027/Profile')
   }
 
+  listStore() : Observable<any>{
+    return this.http.get('https://localhost:7027/Store')
+  }
+
 }

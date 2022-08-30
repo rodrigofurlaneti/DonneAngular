@@ -2,17 +2,15 @@
     <h1 >Acesso:</h1>
     <mat-form-field appearance="fill">
         <mat-label>Loja</mat-label>
-        <mat-select>
-            <mat-option value="1">Donne Matriz</mat-option>
-        </mat-select>
+        <input matInput type="text" id="storeName" name="storeName" (blur)="addStoreName($event)">
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Usuário</mat-label>
-        <input matInput id="userName" name="userName" ngModel>
+        <input matInput type="text" id="userName" name="userName" (blur)="addUserName($event)">
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Senha</mat-label>
-        <input matInput id="userPassword" name="userPassword" [type]="hide ? 'password' : 'text'">
+        <input matInput type="password" id="userPassword" name="userPassword" [type]="hide ? 'password' : 'text'" (blur)="addUserPassword($event)">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
             [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -40,7 +38,5 @@
 </ng-container>
 <ng-container *ngIf="access">
     <router-outlet>
-
     </router-outlet>
-
 </ng-container>

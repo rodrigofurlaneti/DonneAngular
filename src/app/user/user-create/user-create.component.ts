@@ -1,13 +1,15 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router'; 
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserCreateService } from './user-create.service';
 import { UserModel } from '../../../interface/user.interface';
-import { FormControl } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { ProfileModel } from 'src/interface/profile.interface';
 import { MatSelect } from '@angular/material/select';
+import { StoreModel } from 'src/interface/store.interface';
 
 let ELEMENT_DATA: ProfileModel[];
+let ELEMENT_DATA_STORE: StoreModel[];
 
 @Component({
   selector: 'user-create',
@@ -17,16 +19,18 @@ let ELEMENT_DATA: ProfileModel[];
 
 export class UserCreateComponent implements OnInit, AfterViewInit{
 
+  user: UserModel;
+
   displayedColumns: string[] = ['name'];
 
   disableSelect = new FormControl(false);
   
-  profileId: number = 0;
-
-  profileName: string = '';
+  selectedProfile : ProfileModel = new ProfileModel();
 
   constructor(private userCreateService: UserCreateService, 
-    private _snackBar: MatSnackBar,  private readonly router: Router) { }
+    private _snackBar: MatSnackBar,  private readonly router: Router) {
+      this.user = new UserModel()
+    }
 
   @ViewChild('matSelect')
   matSelect!: MatSelect;
@@ -36,62 +40,69 @@ export class UserCreateComponent implements OnInit, AfterViewInit{
   }
 	
   ngOnInit(): void {
+    this.user = new UserModel();
     this.listProfile();
+    this.listStore();
   }
 
   ngAfterViewInit() {
     this.matSelect.valueChange.subscribe(obj => {
-      this.profileId = obj.profileId;
-      this.profileName = obj.profileName;
+      this.selectedProfile.profileId = obj.profileId;
+      this.selectedProfile.profileName = obj.profileName;
     });
-
 }
 
   listProfile() {
     this.userCreateService.listProfile().subscribe(list => {
         ELEMENT_DATA = list;
         this.dataSource = ELEMENT_DATA;
-        console.log(this.dataSource);
       }, err => {
         console.log('Erro ao listar os perfis', err);
       })
     }
 
+    listStore() {
+      this.userCreateService.listStore().subscribe(list => {
+          ELEMENT_DATA_STORE = list;
+          this.dataSourceStore = ELEMENT_DATA_STORE;
+        }, err => {
+          console.log('Erro ao listar os perfis', err);
+        })
+      }
+
   save() {
-    var nameUser = (<HTMLSelectElement>document.getElementById('nameUser')).value;
-    var passwordUser = (<HTMLSelectElement>document.getElementById('namePassword')).value;
-    if(nameUser != '' && passwordUser != '')
+    console.log(this.user);
+    if(this.user.userName != '' && this.user.userPassword != '')
     {
-      var userModel = new UserModel();
-      userModel.userName = nameUser;
-      userModel.userPassword = passwordUser;
-      userModel.profileId = this.profileId;
-      userModel.profileName = this.profileName; 
-      this.userCreateService.save(userModel).subscribe(user => {
+      this.userCreateService.save(this.user).subscribe(userResp => {
         this._snackBar.open('Perfil cadastrada com sucesso!', 'Voltar');
         this.router.navigate(['user-list']);
       }, err => {
-          console.log('Erro ao adicionar o perfil!', err);
+          console.log('Erro ao adicionar o novo usuário!', err);
       })
     }
-    if(nameUser == '')
+    if(this.user.userName == '')
     {
       this._snackBar.open('Não está preenchido o campo nome do usuario!', 'Voltar');
     }
-    if(passwordUser == '')
+    if(this.user.userPassword == '')
     {
       this._snackBar.open('Não está preenchido o campo senha do usuario!', 'Voltar');
     }
   }
 
   dataSource = ELEMENT_DATA;
+
+  dataSourceStore = ELEMENT_DATA_STORE;
+
   clickedRows = new Set<ProfileModel>();
   
   reply(){
     this.router.navigate(['main']);
   }
+
+  selectChangeHandler (event: any) {
+    this.selectedProfile.profileName = event.target.outerText;
+    console.log(this.selectedProfile.profileName)
+  }
 }
-
-
-
-

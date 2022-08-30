@@ -59,6 +59,7 @@ import { StoreListModule } from './store/store-list/store-list.module';
 import { StoreDeleteModule } from './store/store-delete/store-delete.module';
 import { StoreUpdateComponent } from './store/store-update/store-update.component';
 import { StoreUpdateModule } from './store/store-update/store-update.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -115,7 +116,8 @@ import { StoreUpdateModule } from './store/store-update/store-update.module';
     UserCreateModule,
     UserDeleteModule,
     UserListModule,
-    UserUpdateModule
+    UserUpdateModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
