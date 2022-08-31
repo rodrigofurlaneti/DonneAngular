@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AppService } from './app.service';
 import { Router } from '@angular/router'; 
 import { UserModel } from 'src/interface/user.interface';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
@@ -14,15 +15,12 @@ export class AppComponent{
 
   user: UserModel;
   
-  @Output() userChange = new EventEmitter<UserModel>();
-  
   hide = true;
 
-  private _snackBar: any;
-  
   access: boolean = false;
 
   constructor(private appService: AppService,
+              private _snackBar: MatSnackBar,
               private router: Router) {
                 this.user = new UserModel();
               }
@@ -51,34 +49,29 @@ export class AppComponent{
     {
       this._snackBar.open('Não existe este usuário cadastrado!', 'Voltar');
     }
-    if(this.user.store.storeName === '')
+    else if(this.user.store.storeName === '')
     {
-      this._snackBar.open('Não está preenchido o campo Loja!', 'Voltar');
+      this._snackBar.open('Não está preenchido o campo nome da loja!', 'Voltar');
     }
-    if(this.user.userName === userResp.userName && 
-        this.user.store.storeName === userResp.store.storeName &&  
-        this.user.userPassword != userResp.userPassword)
+    else if(this.user.userPassword === '')
     {
-      this._snackBar.open('Senha inválida!', 'Voltar');
+      this._snackBar.open('Não está preenchido o campo senha!', 'Voltar');
     }
-    if(this.user.userName != userResp.userName && 
-        this.user.userPassword === userResp.userPassword && 
-        this.user.store.storeName === userResp.store.storeName)
-    {
-      this._snackBar.open('Usuário inválido!', 'Voltar');
-    }
-    if(this.user.userName === userResp.userName && 
-        this.user.userPassword === userResp.userPassword && 
-        this.user.store.storeName != userResp.store.storeName)
+    else if(this.user.store.storeName != userResp.store.storeName)
     {
       this._snackBar.open('Loja inválida!', 'Voltar');
     }
-    if(this.user.userPassword === userResp.userPassword && 
+    else if(this.user.userPassword != userResp.userPassword)
+    {
+      this._snackBar.open('Senha inválida!', 'Voltar');
+    }
+    else if(this.user.userPassword === userResp.userPassword && 
         this.user.userName === userResp.userName &&
         this.user.store.storeName === userResp.store.storeName)
     {
       this.access = true;
       this.router.navigate(['/main']);
+      this._snackBar.open('Acesso autorizado com sucesso!', 'Voltar');
     }
     }, err => {
       console.log('Erro autenticar o usuário', err);
