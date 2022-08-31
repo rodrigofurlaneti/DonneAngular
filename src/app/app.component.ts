@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppService } from './app.service';
 import { Router } from '@angular/router'; 
 import { UserModel } from 'src/interface/user.interface';
